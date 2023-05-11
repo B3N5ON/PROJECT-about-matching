@@ -4,3 +4,5 @@ This project is talked about a paper of " COLLEGE ADMISSIONS AND THE STABILITY O
 The "differtinating grade.txt" convert Chinese to integer point, e.t. 均標 -> 12. It can increase convenience of modifying data.
 
 Headerfun.h is how I input data to the map
+
+If u want to test data, u can use the title begin of new's csv file
