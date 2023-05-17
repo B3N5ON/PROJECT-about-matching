@@ -10,3 +10,5 @@ The **differtinating grade.txt** convert Chinese to integer score, e.t. 均標 -
 And at the first half of **project.cpp** is how I manage different file's data to create school's order of preference of student.
 
 If u want to test data, u can use the title begin of 'new' csv file in *Simple Tesst* file
+
+To change data, plz edit #define at the head of **Headerfun.h**
