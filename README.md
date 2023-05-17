@@ -7,6 +7,6 @@ The **differtinating grade.txt** convert Chinese to integer score, e.t. 均標 -
 
 **Headerfun.h** is how I input data to the map
 
-And at the first part of **project.cpp** is how I manage different file's data to create school's order of preference of student.
+And at the first  of **project.cpp** is how I manage different file's data to create school's order of preference of student.
 
 If u want to test data, u can use the title begin of 'new' csv file in *Simple Tesst* file
