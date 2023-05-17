@@ -1,5 +1,5 @@
 # PROJECT-about-matching
-This project is talked about a paper of ***COLLEGE ADMISSIONS AND THE STABILITY OF MARRIAGE***, and how I use this algorithm to complete college admission
+This project is talked about ***COLLEGE ADMISSIONS AND THE STABILITY OF MARRIAGE*** by  D. Gale and L. S. Shapley, and how I use this algorithm to complete college admission
 
 Before running u have to download **Headerfun.h, differtinating grade.txt, rank.csv, school.list.csv, student_list.csv, algorithm.h, project.cpp**
 
