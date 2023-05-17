@@ -56,22 +56,22 @@ public:
 
 	int NatureG{};
 
-	double chRatio{};		//°ê¤å­¿²v
+	double chRatio{};	//åœ‹æ–‡å€ç‡
 
-	double EnRatio{};	//­^¤å­¿²v
+	double EnRatio{};	//è‹±æ–‡å€ç‡
 
-	double MARatio{};	//¼ÆA­¿²v
+	double MARatio{};	//æ•¸Aå€ç‡
 
-	double MBRatio{};	//¼ÆB­¿²v
+	double MBRatio{};	//æ•¸Bå€ç‡
 
-	double SoRatio{};	//ªÀ·|­¿²v
+	double SoRatio{};	//ç¤¾æœƒå€ç‡
 
-	double NaRatio{};	//¦ÛµM­¿²v
+	double NaRatio{};	//è‡ªç„¶å€ç‡
 
 	vector<wstring> stdList;	
 };
 
-void commaSeparate(vector<wstring> &v, wstring temp, wstring symbol) {		//¦r¦ê¤À³Î(¦s¤Jvector, ¼È¦sstring, ²Å¸¹)
+void commaSeparate(vector<wstring> &v, wstring temp, wstring symbol) {		//å­—ä¸²åˆ†å‰²(å­˜å…¥vector, æš«å­˜string, ç¬¦è™Ÿ)
 	while (true)
 	{
 		v.push_back(temp.substr(0, temp.find(symbol)));
@@ -86,7 +86,7 @@ void commaSeparate(vector<wstring> &v, wstring temp, wstring symbol) {		//¦r¦ê¤À
 	}
 }
 
-void fill0To6(wstring &p) {			//¾Ç®Õ¥N¸¹¬°6½X¡A¸É0¨Ã¦s¤Jstring
+void fill0To6(wstring &p) {			//å­¸æ ¡ä»£è™Ÿç‚º6ç¢¼ï¼Œè£œ0ä¸¦å­˜å…¥string
 		wstringstream ss(p);
 
 		ss << setw(6) << setfill(L'0') << p;
@@ -273,27 +273,27 @@ void build_school_rank(map<wstring, school> &SchoolDetail, map<wstring, vector<i
 		vector<int> grade;
 
 		for (int i = 3; i < 9; i++) {
-			if (s[i] == L"³»¼Ğ") {
+			if (s[i] == L"é ‚æ¨™") {
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[0]);
 			}
-			else if (s[i] == L"«e¼Ğ") {
+			else if (s[i] == L"å‰æ¨™") {
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[1]);
 			}
-			else if (s[i] == L"§¡¼Ğ") {
+			else if (s[i] == L"å‡æ¨™") {
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[2]);
 			}
-			else if (s[i] == L"«á¼Ğ") {
+			else if (s[i] == L"å¾Œæ¨™") {
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[3]);
 			}
-			else if (s[i] == L"©³¼Ğ") {
+			else if (s[i] == L"åº•æ¨™") {
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[4]);
