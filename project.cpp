@@ -40,6 +40,11 @@ int main()
 		for (int j = 1; j < rankList[i].size(); j++)  //first is ID, so loop start on the 1
 		{
 			auto sch = SchoolDetail.find(rankList[i][j]);		//get school detail
+
+			if (sch == SchoolDetail.end())			//can't find the school
+			{
+				break;
+			}
 			//Determine whether student's grade are confrom with school's grade
 			//五標篩選
 			//如果國文成績大於給的國文標準或者學校不取國文(國文的倍率為0)
@@ -217,7 +222,7 @@ int main()
 
 			if (t.second.stdList.size() > auditionNum)
 			{
-				int LastStudentGrade = SubjectGrade[auditionNum - 1];
+				double LastStudentGrade = SubjectGrade[auditionNum - 1];
 
 				vector<int> AddresReg;		//紀錄相同分數的位置
 
@@ -233,6 +238,21 @@ int main()
 				t.second.stdList.erase(t.second.stdList.begin() + a, t.second.stdList.end());		//then erase the people whose score is less than the last person's score
 			}
 		}
+	}
+
+	wcout << L"\n" << L"學校對學生的順位" << endl;
+
+	for (auto& it : SchoolDetail) {
+
+		wcout << it.second.SchoolName << L":";
+
+		for (int i = 0; i < it.second.stdList.size(); i++) 
+		{
+			auto it2 = StudentMap.find(it.second.stdList[i]);
+
+			wcout << it2->second.name << L" ";
+		}
+		wcout << L"\n";
 	}
 
 //Do algorithm
@@ -270,7 +290,9 @@ int main()
 	//	{L"f", {L"B", L"A"}},
 	//	};
 
-	stableMatching(StudentMap, SchoolDetail, match);
+stableMatching(StudentMap, SchoolDetail, match);
+
+wcout << L"\n" << L"用學校對學生的順位排名和學生的志願做演算法排序" << endl;
 
 for (auto& it2 : match)
 {
@@ -312,16 +334,6 @@ for (auto& it2 : match)
 //	}
 //	wcout << studentName << L" -- " << schoolName << endl;
 //}
-
-wcout << L"\n" << L"學校對學生的順位" << endl;
-	for (auto& it : SchoolDetail) {
-		wcout << it.second.SchoolName << L":";
-		for (int i = 0; i < it.second.stdList.size(); i++) {
-			auto it2 = StudentMap.find(it.second.stdList[i]);
-			wcout << it2->second.name << L" ";
-		}
-		wcout << L"\n";
-	}
 
 	SetConsoleCP(950);
 
