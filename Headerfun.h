@@ -17,7 +17,8 @@ using namespace std;
 
 typedef vector<wstring> WS;
 
-class student {
+class student 
+{
 public:
 	wstring id, name;
 
@@ -38,7 +39,8 @@ public:
 	WS finalRank;
 };
 
-class school {
+class school
+{
 public:
 	wstring SchoolName;
 
