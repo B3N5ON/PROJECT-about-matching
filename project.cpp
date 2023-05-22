@@ -302,7 +302,7 @@ for (auto& it2 : match)
 
 	wstring schoolName = L"NUN";
 
-	wcout << studentname << L"- - - -";
+	wcout << sTN->second.id << L"  " << studentname <<L":" << L"\n";
 
 	for (auto& it3 : it2.second)
 	{
@@ -314,26 +314,9 @@ for (auto& it2 : match)
 
 			wcout << schoolName << L"	";
 		}
-
 	}
 	wcout << endl;
 }
-
-//for (auto& it : match)
-//{
-//	auto stN = StudentMap.find(it.first);
-//
-//	wstring studentName = stN->second.name;
-//
-//	wstring schoolName = L"NUN";
-//
-//	if (it.second != L"") {
-//		auto scN = SchoolDetail.find(it.second);
-//
-//		schoolName = scN->second.SchoolName;
-//	}
-//	wcout << studentName << L" -- " << schoolName << endl;
-//}
 
 	SetConsoleCP(950);
 
