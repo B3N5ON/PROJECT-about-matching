@@ -29,13 +29,11 @@ void stableMatching(map<wstring, student> studentList, map<wstring, school> scho
 		}
 	}
 
-	map<wstring, bool> noOneWantHim, exceedSize;
+	map<wstring, bool> noOneWantHim;
 
 	for (auto& it : studentList)
 	{
 		admissionNum[it.first] = 0;
-
-		exceedSize[it.first] = false;
 	}
 
 	bool noFreeStudent = false, noSize = false;
@@ -71,7 +69,8 @@ void stableMatching(map<wstring, student> studentList, map<wstring, school> scho
 
 				int favorite = 0, rejected = 0;
 
-				if (admissionNum[student] != MAXVALUE) {//
+				if (admissionNum[student] != MAXVALUE)
+				{
 					if (studentMatching[student].empty())
 					{
 						while (it.second.Rank.size())		//學生志願序中的學校
@@ -197,7 +196,7 @@ void stableMatching(map<wstring, student> studentList, map<wstring, school> scho
 
 								if (rejected == studentList[student].Rank.size())		//被拒絕數等於他所申請的數量
 								{
-									noOneWantHim[student] = true; /**/
+									noOneWantHim[student] = true; 
 
 									freeStudent.erase(find(freeStudent.begin(), freeStudent.end(), student));
 
@@ -206,23 +205,13 @@ void stableMatching(map<wstring, student> studentList, map<wstring, school> scho
 							}
 						}
 					}
-				}//
+				}
 				else
 				{
-					if (exceedSize[student] == true)
-					{
-						noSize = true;
-						if (find(freeStudent.begin(), freeStudent.end(), student) != freeStudent.end())
-						{
-							freeStudent.erase(find(freeStudent.begin(), freeStudent.end(), student));
-						}
-						break;
-					}
 					if (find(freeStudent.begin(), freeStudent.end(), student) != freeStudent.end())
 					{
 						freeStudent.erase(find(freeStudent.begin(), freeStudent.end(), student));
 					}
-					exceedSize[student] = true;
 				}
 			}
 		}
@@ -245,10 +234,6 @@ void stableMatching(map<wstring, student> studentList, map<wstring, school> scho
 				}
 
 				studentMatching[entry.first] = {}; //初始化
-			}
-			else
-			{
-				
 			}
 		}
 
