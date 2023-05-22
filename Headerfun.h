@@ -71,7 +71,8 @@ public:
 	vector<wstring> stdList;	
 };
 
-void commaSeparate(vector<wstring> &v, wstring temp, wstring symbol) {		//字串分割(存入vector, 暫存string, 符號)
+void commaSeparate(vector<wstring> &v, wstring temp, wstring symbol) 
+{		//字串分割(存入vector, 暫存string, 符號)
 	while (true)
 	{
 		v.push_back(temp.substr(0, temp.find(symbol)));
@@ -86,7 +87,8 @@ void commaSeparate(vector<wstring> &v, wstring temp, wstring symbol) {		//字串
 	}
 }
 
-void fill0To6(wstring &p) {			//學校代號為6碼，補0並存入string
+void fill0To6(wstring &p) 
+{			//學校代號為6碼，補0並存入string
 		wstringstream ss(p);
 
 		ss << setw(6) << setfill(L'0') << p;
@@ -104,7 +106,8 @@ void FiveStanderMap(map<wstring, vector<int>>&FiveStandards)
 
 	int count = 0;
 
-	while (getline(grade, str)) {
+	while (getline(grade, str)) 
+	{
 		int sz = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0);
 
 		MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, buf, sz);
@@ -115,7 +118,8 @@ void FiveStanderMap(map<wstring, vector<int>>&FiveStandards)
 
 		commaSeparate(s, wstr, L"\t");
 
-		if (count == 0) {
+		if (count == 0)
+		{
 			count++;
 
 			continue;
@@ -126,9 +130,9 @@ void FiveStanderMap(map<wstring, vector<int>>&FiveStandards)
 
 		vector<int> stander;
 
-		for (int i = 0; i < s.size(); i++)
+		for (int i = 0; i < s.size(); i++){
 			stander.push_back(stoi(s[i]));
-
+		}
 		FiveStandards.insert(pair<wstring, vector<int>>(subject, stander));
 	}
 
@@ -157,7 +161,8 @@ void buiild_student_rank(vector<WS> &rankList)
 
 		p.push_back(s[0]);
 
-		for (int i = 1; i < s.size(); i++) {
+		for (int i = 1; i < s.size(); i++)
+		{
 			fill0To6(s[i]);
 
 			if (s[i] == L"000000")
@@ -196,7 +201,8 @@ void build_student_list(map<wstring, student> &StudentMap)
 
 		commaSeparate(s, wstr, L",");
 
-		if (count == 0) {
+		if (count == 0) 
+		{
 			count++;
 			continue;
 		}
@@ -272,28 +278,34 @@ void build_school_rank(map<wstring, school> &SchoolDetail, map<wstring, vector<i
 
 		vector<int> grade;
 
-		for (int i = 3; i < 9; i++) {
-			if (s[i] == L"頂標") {
+		for (int i = 3; i < 9; i++) 
+		{
+			if (s[i] == L"頂標") 
+			{
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[0]);
 			}
-			else if (s[i] == L"前標") {
+			else if (s[i] == L"前標") 
+			{
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[1]);
 			}
-			else if (s[i] == L"均標") {
+			else if (s[i] == L"均標") 
+			{
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[2]);
 			}
-			else if (s[i] == L"後標") {
+			else if (s[i] == L"後標")
+			{
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[3]);
 			}
-			else if (s[i] == L"底標") {
+			else if (s[i] == L"底標") 
+			{
 				auto it = FiveStandards.find(SubJ[i]);
 
 				grade.push_back(it->second[4]);
@@ -307,9 +319,12 @@ void build_school_rank(map<wstring, school> &SchoolDetail, map<wstring, vector<i
 
 		sc.Number = stoi(s[2]);
 
-		for (int i = 0; i < 6; i++) {
-			if (grade[i] != -1) {
-				switch (i) {
+		for (int i = 0; i < 6; i++) 
+		{
+			if (grade[i] != -1) 
+			{
+				switch (i) 
+				{
 				case 0:
 					sc.ChineseG = grade[i];
 					continue;
@@ -331,9 +346,12 @@ void build_school_rank(map<wstring, school> &SchoolDetail, map<wstring, vector<i
 				}
 			}
 		}
-		for (int i = 9; i < 15; i++) {
-			if (s[i] != L"") {
-				switch (i) {
+		for (int i = 9; i < 15; i++)
+		{
+			if (s[i] != L"") 
+			{
+				switch (i) 
+				{
 				case 9:
 					sc.chRatio = stoi(s[i]);
 					continue;
