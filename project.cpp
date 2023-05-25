@@ -312,7 +312,7 @@ for (auto& it2 : match)
 
 			schoolName = sCN->second.SchoolName;
 
-			wcout << schoolName << L"	";
+			wcout << schoolName << L"|";
 		}
 	}
 	wcout << endl;
